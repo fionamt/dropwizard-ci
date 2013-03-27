@@ -1,8 +1,12 @@
 package org.pio.suite;
 
 import org.junit.ClassRule;
-import org.junit.extensions.cpsuite.ClasspathSuite;
 import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.pio.dropwizard.resource.ByeResourceIT;
+import org.pio.dropwizard.resource.ByeResourceTest;
+import org.pio.dropwizard.resource.HelloResourceIT;
+import org.pio.dropwizard.resource.HelloResourceTest;
 import org.pio.test.TestContext;
 
 /**
@@ -10,7 +14,8 @@ import org.pio.test.TestContext;
  * Date: 2/16/13
  * Time: 5:27 PM
  */
-@RunWith(ClasspathSuite.class)
+@RunWith(Suite.class)
+@Suite.SuiteClasses({ ByeResourceIT.class, ByeResourceTest.class, HelloResourceIT.class, HelloResourceTest.class})
 public class DWCITestSuite {
 
     @ClassRule
