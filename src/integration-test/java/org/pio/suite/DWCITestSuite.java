@@ -15,7 +15,8 @@ import org.pio.test.TestContext;
  * Time: 5:27 PM
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ ByeResourceIT.class, ByeResourceTest.class, HelloResourceIT.class, HelloResourceTest.class})
+//@Suite.SuiteClasses({ ByeResourceIT.class, ByeResourceTest.class, HelloResourceIT.class, HelloResourceTest.class})
+@Suite.SuiteClasses({ ByeResourceIT.class, HelloResourceIT.class})
 public class DWCITestSuite {
 
     @ClassRule

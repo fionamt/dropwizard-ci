@@ -21,6 +21,7 @@ public class TestContext extends TestWatcher {
     private final Boolean forSuite;
 
     public TestContext(Boolean forSuite) {
+        System.err.println("TextContext(forSuite=" + forSuite + ")");
         this.forSuite = forSuite;
         if (this.forSuite) {
             IN_SUITE = true;
@@ -29,6 +30,7 @@ public class TestContext extends TestWatcher {
 
     @Override
     protected void starting(Description description) {
+        System.err.println("TestContext.starting(" + description + ")");
         LOG.info("{} starting for suite: {}.", this.getClass().getSimpleName(), forSuite);
         if (forSuite == IN_SUITE) {
             LOG.info("{} {} calling START dropWizard Server.", this.getClass().getSimpleName());
@@ -38,6 +40,7 @@ public class TestContext extends TestWatcher {
 
     @Override
     protected void finished(Description description) {
+        System.err.println("TestContext.finished(" + description + ")");
         LOG.info("{} finishing for suite: {}.", this.getClass().getSimpleName(), forSuite);
         if (forSuite == IN_SUITE) {
             LOG.info("{} calling STOP dropWizard Server.", this.getClass().getSimpleName());
@@ -46,6 +49,8 @@ public class TestContext extends TestWatcher {
     }
 
     private void startDropWizardServer() {
+        System.err.println("TestContext.startDropWizardServer()");
+
         service = new DWCIService();
         try {
             service.startEmbeddedServer(this.getClass().getClassLoader()
@@ -60,6 +65,8 @@ public class TestContext extends TestWatcher {
     }
 
     private void stopDropWizardServer() {
+        System.err.println("TestContext.stopDropWizardServer()");
+
         if(service.isEmbeddedServerRunning()) {
             try {
                 service.stopEmbeddedServer();

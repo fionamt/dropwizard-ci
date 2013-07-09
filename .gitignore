@@ -1,5 +1,10 @@
 *.iml
+.gradle
 .idea
-target
+build
+classes
 out
+target
 *~
+\#*#
+.#*
